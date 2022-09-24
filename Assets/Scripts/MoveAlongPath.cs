@@ -7,13 +7,12 @@ public class MoveAlongPath : MonoBehaviour
 
     [SerializeField] float moveSpeed;
 
-    [SerializeField] AllPaths mainPaths;
-
+    [SerializeField] ResourceInfo resource;
 
     [ContextMenu("StartMoving")]
     void StartMovingAlongPath()
     {
-        StartCoroutine(MoveAlongPathRoutine(mainPaths.paths[0]));
+        StartCoroutine(MoveAlongPathRoutine());
 
     }
 
@@ -22,12 +21,9 @@ public class MoveAlongPath : MonoBehaviour
 
     [SerializeField] float threshholdToArrive = 0.1f;
 
-    IEnumerator MoveAlongPathRoutine(Path p)
+    IEnumerator MoveAlongPathRoutine()
     {
         step = 0;
-        //if(step > p.points.Count)
-
-
 
         while (step < p.points.Count)
         {
