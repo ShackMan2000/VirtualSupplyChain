@@ -4,26 +4,42 @@ using UnityEngine;
 
 public class CreatePath : MonoBehaviour
 {
-    //click, shoot a raycast, hit only planet
-    //save point
-
-    //add point to path
+  
 
     [SerializeField] Transform pointVisualPF;
+    [SerializeField] Camera cam;
+
+    [SerializeField] AllPaths allPaths;
+
 
 
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hit.transform.GetComponent<Move>())
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                var hitPosition = hit.point;
-                var newVisual = Instantiate(pointVisualPF, transform);
+                Debug.Log("hit");
+                if (hit.transform.GetComponent<Planet>())
+                {
+                    var hitPosition = hit.point;
+                    var newVisual = Instantiate(pointVisualPF, transform);
+                    newVisual.position = hitPosition;
+                    AddPointToPath(hitPosition);
+                }
             }
         }
+    }
+
+
+
+    void AddPointToPath(Vector3 position)
+    {
+        allPaths.AddPointToCurrentPath(position);
+
 
     }
+
 }

@@ -24,50 +24,50 @@ public class Move : MonoBehaviour
     Transform anotherObjectToRotate;
 
 
-    void OnEnable()
-    {
-        rotateAction = rotateActionRef.ToInputAction();
-        rotateAction.Enable();
-        rotateAction.performed += Rotate;
-    }
+    //void OnEnable()
+    //{
+    //    rotateAction = rotateActionRef.ToInputAction();
+    //    rotateAction.Enable();
+    //    rotateAction.performed += Rotate;
+    //}
 
-    private void Rotate(InputAction.CallbackContext obj)
-    {
-        var inputValue = obj.ReadValue<Vector2>();
-        var rotationValue = inputValue.x;
+    //private void Rotate(InputAction.CallbackContext obj)
+    //{
+    //    var inputValue = obj.ReadValue<Vector2>();
+    //    var rotationValue = inputValue.x;
 
-        transform.RotateAround(new Vector3(0f, 1f, 0f), rotationSpeed * Time.deltaTime * rotationValue);
+    //    transform.RotateAround(new Vector3(0f, 1f, 0f), rotationSpeed * Time.deltaTime * rotationValue);
 
-    }
+    //}
 
 
-    // Start is called before the first frame update
+    //// Start is called before the first frame update
   
-    // Update is called once per frame
-    void Update()
-    {
-        // transform.position = Vector3.MoveTowards(transform.)
-        RotateOnSphere();
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    // transform.position = Vector3.MoveTowards(transform.)
+    //    RotateOnSphere();
+    //}
 
-    public    Vector3 targetPosition;
+    //public    Vector3 targetPosition;
 
-    public Transform target;
+    //public Transform target;
    
-    void RotateOnSphere()
-    {
+    //void RotateOnSphere()
+    //{
 
      
-            transform.position = Vector3.RotateTowards(transform.position, target.position, rotationSpeed * Time.deltaTime, 0f);
+    //        transform.position = Vector3.RotateTowards(transform.position, target.position, rotationSpeed * Time.deltaTime, 0f);
         
 
-    }
+    //}
 
 
-    private void FixedUpdate()
-    {
+    //private void FixedUpdate()
+    //{
         
-    }
+    //}
 }
 
 
