@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18703d93353c36740b419bcec0ed448d, type: 3}
-  m_Name: scriptableInstance
+  m_Script: {fileID: 11500000, guid: 17f7db5c9f228384587afe487b04a98f, type: 3}
+  m_Name: Lithium
   m_EditorClassIdentifier: 
-  value: 0
+  ResourceName: 
+  path: []
+  ingredients: []

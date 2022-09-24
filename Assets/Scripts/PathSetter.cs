@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreatePath : MonoBehaviour
+public class PathSetter : MonoBehaviour
 {
-  
+
 
     [SerializeField] Transform pointVisualPF;
     [SerializeField] Camera cam;
 
-    [SerializeField] AllPaths allPaths;
+    [SerializeField] ResourceInfo resource;
 
 
 
@@ -21,11 +21,10 @@ public class CreatePath : MonoBehaviour
         {
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log("hit");
                 if (hit.transform.GetComponent<Planet>())
                 {
                     var hitPosition = hit.point;
-                    var newVisual = Instantiate(pointVisualPF, hit.transform);
+                    var newVisual = Instantiate(pointVisualPF, transform);
                     newVisual.position = hitPosition;
                     AddPointToPath(hitPosition);
                 }
@@ -37,9 +36,13 @@ public class CreatePath : MonoBehaviour
 
     void AddPointToPath(Vector3 position)
     {
-        allPaths.AddPointToCurrentPath(position);
-
-
+        resource.AddPointToPath(position);
     }
 
+
+    [ContextMenu("ClearPath")]
+    void ClearPath()
+    {
+
+    }
 }

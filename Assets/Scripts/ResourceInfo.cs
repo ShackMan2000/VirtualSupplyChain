@@ -8,62 +8,31 @@ using UnityEngine;
 public class ResourceInfo : ScriptableObject
 {
 
-    public string ResourceName; 
-
-
-    public event Action OnPathFinished = delegate { };
-
-    public bool IsFinished { get; }
+    public string ResourceName;
 
     public List<Vector3> path;
 
     public List<ResourceInfo> ingredients;
 
-    public void Initialize()
-    {
-        SubscribeToIngredients();
+    public TransportationMethod transportationMethod;
 
-    
+    public event Action OnPathFinished = delegate { };
+
+
+
+
+    public void InvokePathFinished()
+    {
+        OnPathFinished();
     }
 
-
-
-    private void OnIngredientFinished()
+    internal void AddPointToPath(Vector3 position)
     {
-
-
-
+        path.Add(position);
     }
-
-    private void SubscribeToIngredients()
-    {
-
-        foreach (var ingredient in ingredients)
-        {
-            ingredient.OnPathFinished += OnIngredientFinished;
-        }
-    }
-
-
-
-    private void UnSubscribeToIngredients()
-    {
-
-        foreach (var ingredient in ingredients)
-        {
-            ingredient.OnPathFinished -= OnIngredientFinished;
-        }
-
-
-    }
-
-
-
-
-
 }
 
 
 
 
-public enum transportationMethod { truck, ship, plane, rail}
+public enum TransportationMethod { truck, ship, plane, rail }
