@@ -40,7 +40,7 @@ Material:
     m_Ints: []
     m_Floats:
     - ENABLE_BENDING: 0
-    - _Bend: 0
+    - _Bend: 526.15
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scale: 2
