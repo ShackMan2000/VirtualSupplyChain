@@ -12,7 +12,7 @@ public class MoveAlongPath : MonoBehaviour
     [ContextMenu("StartMoving")]
     void StartMovingAlongPath()
     {
-        StartCoroutine(MoveAlongPathRoutine());
+       // StartCoroutine(MoveAlongPathRoutine());
 
     }
 
@@ -21,26 +21,7 @@ public class MoveAlongPath : MonoBehaviour
 
     [SerializeField] float threshholdToArrive = 0.1f;
 
-    IEnumerator MoveAlongPathRoutine()
-    {
-        step = 0;
 
-        while (step < p.points.Count)
-        {
-            Vector3 targetPosition = p.points[step];
-
-
-            while (Vector3.Distance(transform.position, targetPosition) > threshholdToArrive)
-            {
-                transform.position = Vector3.RotateTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime, 0f);
-                yield return null;
-            }
-
-            step++;
-        }
-
-
-    }
 
 
 }

@@ -25,7 +25,7 @@ public class CreatePath : MonoBehaviour
                 if (hit.transform.GetComponent<Planet>())
                 {
                     var hitPosition = hit.point;
-                    var newVisual = Instantiate(pointVisualPF, transform);
+                    var newVisual = Instantiate(pointVisualPF, hit.transform);
                     newVisual.position = hitPosition;
                     AddPointToPath(hitPosition);
                 }
