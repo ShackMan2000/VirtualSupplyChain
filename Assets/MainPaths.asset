@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: MainPaths
   m_EditorClassIdentifier: 
   paths:
-  - points: []
+  - points:
+    - {x: 2.8944101, y: 3.904192, z: 1.1746006}
+    - {x: 1.496522, y: 2.3651078, z: 4.1432686}
+    - {x: 4.3846493, y: -2.0668979, z: 1.2258859}
+    - {x: 4.550951, y: 1.6260147, z: -1.2825432}
   - points: []
