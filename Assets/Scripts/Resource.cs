@@ -23,6 +23,8 @@ public class Resource : MonoBehaviour
     [SerializeField] float threshholdToArrive = 0.1f;
 
 
+    Transform modelTransform;
+
     public void Initialize(ResourceInfo newInfo)
     {
         info = newInfo;
@@ -61,6 +63,17 @@ public class Resource : MonoBehaviour
             while (Vector3.Distance(transform.position, targetPosition) > threshholdToArrive)
             {
                 transform.position = Vector3.RotateTowards(transform.position, targetPosition, speed * Time.deltaTime, 0f);
+
+
+                transform.LookAt(Vector3.zero);
+                transform.Rotate(-90, 0, 0);
+
+                var modelRotation = modelTransform.localEulerAngles;                     
+                    modelTransform.LookAt(targetPosition);
+
+                modelTransform.localEulerAngles = new Vector3(modelRotation.x, modelTransform.localEulerAngles.y, modelRotation.z);
+
+               // modelTransform.LookAt(targetPosition);
                 yield return null;
             }
 
@@ -90,6 +103,7 @@ public class Resource : MonoBehaviour
             else
             {
                 GameObject newModel = Instantiate(t.ModelPrefab, transform);
+                modelTransform = newModel.transform;
                 models.Add(t, newModel);
             }
 
