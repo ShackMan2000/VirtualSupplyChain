@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceName: 
   iconImage: {fileID: 0}
+  isFinished: 1
   path: []
-  ingredients:
-  - {fileID: 11400000, guid: 19ca09f3402325945ba4239ce4d086c3, type: 2}
-  - {fileID: 11400000, guid: 0c1db8e6ac5baa64c8820f21ebb6284c, type: 2}
+  ingredients: []
