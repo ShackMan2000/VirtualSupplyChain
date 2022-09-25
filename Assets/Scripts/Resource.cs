@@ -81,6 +81,7 @@ public class Resource : MonoBehaviour
         }
 
         info.InvokePathFinished();
+        modelTransform.gameObject.SetActive(false);
 
 
         void UpdateTransportationMethod()
@@ -98,6 +99,8 @@ public class Resource : MonoBehaviour
             
             if (models.ContainsKey(t))
             {
+                modelTransform = models[t].transform;
+
                 models[t].SetActive(true);
             }
             else
