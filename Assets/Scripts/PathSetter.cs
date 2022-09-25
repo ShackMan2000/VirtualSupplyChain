@@ -11,6 +11,8 @@ public class PathSetter : MonoBehaviour
 
     [SerializeField] ResourceInfo resource;
 
+    [SerializeField] TransportationType transportationType;
+
 
 
     private void Update()
@@ -36,7 +38,7 @@ public class PathSetter : MonoBehaviour
 
     void AddPointToPath(Vector3 position)
     {
-        resource.AddPointToPath(position);
+        resource.AddPointToPath(position, transportationType);
     }
 
 

@@ -6,17 +6,19 @@ using UnityEngine;
 public class Resource : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed;
+    float speed;
 
     [SerializeField] ResourceInfo info;
 
 
-    List<Vector3> path => info.path;
+    List<PathPoint> path => info.path;
 
     List<ResourceInfo> ingredients => info.ingredients;
 
     public bool IsFinished { get; }
 
+
+    Dictionary<TransportationType, GameObject> models;
 
     [SerializeField] float threshholdToArrive = 0.1f;
 
@@ -25,9 +27,10 @@ public class Resource : MonoBehaviour
     {
         info = newInfo;
 
+        models = new Dictionary<TransportationType, GameObject>();
 
         if (ingredients == null || ingredients.Count == 0)
-        StartCoroutine(MoveAlongPathRoutine());
+            StartCoroutine(MoveAlongPathRoutine());
         else
             SubscribeToIngredients();
 
@@ -36,22 +39,28 @@ public class Resource : MonoBehaviour
 
 
 
+    
 
-   
 
 
     IEnumerator MoveAlongPathRoutine()
     {
-       int step = 0;
+        TransportationType previousTransportationType = null;
+
+        if (path.Count > 0)
+            transform.position = path[0].Position;
+
+        int step = 1;
 
         while (step < path.Count)
         {
-            Vector3 targetPosition = path[step];
+            Vector3 targetPosition = path[step].Position;
 
+            UpdateTransportationMethod();
 
             while (Vector3.Distance(transform.position, targetPosition) > threshholdToArrive)
             {
-                transform.position = Vector3.RotateTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime, 0f);
+                transform.position = Vector3.RotateTowards(transform.position, targetPosition, speed * Time.deltaTime, 0f);
                 yield return null;
             }
 
@@ -59,6 +68,32 @@ public class Resource : MonoBehaviour
         }
 
         info.InvokePathFinished();
+
+
+        void UpdateTransportationMethod()
+        {
+            TransportationType t = path[step].TransportationType;
+
+            //same as before, no need to update anything
+            if (previousTransportationType == t)
+                return;
+
+            speed = t.TravelSpeed;
+
+            foreach (var m in models)            
+                m.Value.SetActive(false);
+            
+            if (models.ContainsKey(t))
+            {
+                models[t].SetActive(true);
+            }
+            else
+            {
+                GameObject newModel = Instantiate(t.ModelPrefab, transform);
+                models.Add(t, newModel);
+            }
+
+        }
     }
 
 

@@ -11,6 +11,5 @@ public class Path
     public List<Vector3> points;
 
 
-
    
 }

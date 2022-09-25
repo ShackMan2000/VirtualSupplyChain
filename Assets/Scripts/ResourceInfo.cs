@@ -10,11 +10,10 @@ public class ResourceInfo : ScriptableObject
 
     public string ResourceName;
 
-    public List<Vector3> path;
+    public List<PathPoint> path;
 
     public List<ResourceInfo> ingredients;
 
-    public TransportationMethod transportationMethod;
 
     public event Action OnPathFinished = delegate { };
 
@@ -26,13 +25,11 @@ public class ResourceInfo : ScriptableObject
         OnPathFinished();
     }
 
-    internal void AddPointToPath(Vector3 position)
+    internal void AddPointToPath(Vector3 position, TransportationType transportationType)
     {
-        path.Add(position);
+        path.Add(new PathPoint(position, transportationType));
     }
 }
 
 
 
-
-public enum TransportationMethod { truck, ship, plane, rail }
