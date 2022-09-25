@@ -26,7 +26,7 @@ public class PathSetter : MonoBehaviour
                 if (hit.transform.GetComponent<Planet>())
                 {
                     var hitPosition = hit.point;
-                    var newVisual = Instantiate(pointVisualPF, transform);
+                    var newVisual = Instantiate(pointVisualPF, hit.transform);
                     newVisual.position = hitPosition;
                     AddPointToPath(hitPosition);
                 }
@@ -42,9 +42,13 @@ public class PathSetter : MonoBehaviour
     }
 
 
-    [ContextMenu("ClearPath")]
-    void ClearPath()
+    [ContextMenu("ShowPath")]
+    void ShowPath()
     {
-
+        for (int i = 0; i < resource.path.Count; i++)
+        {
+           Transform t =  Instantiate(pointVisualPF);
+            t.position = resource.path[i].Position;
+        }
     }
 }

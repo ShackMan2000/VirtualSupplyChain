@@ -13,16 +13,8 @@ MonoBehaviour:
   m_Name: Battery
   m_EditorClassIdentifier: 
   ResourceName: 
-  path:
-  - position: {x: 0.674407, y: 3.6765842, z: 3.3208303}
-    transportationType: {fileID: 11400000, guid: d839c21ac7f1b094e8bc0360484c389d,
-      type: 2}
-  - position: {x: 2.3926134, y: 4.388682, z: -0.122069836}
-    transportationType: {fileID: 11400000, guid: d839c21ac7f1b094e8bc0360484c389d,
-      type: 2}
-  - position: {x: 4.0100822, y: 1.3939266, z: -2.6412497}
-    transportationType: {fileID: 11400000, guid: d839c21ac7f1b094e8bc0360484c389d,
-      type: 2}
+  iconImage: {fileID: 0}
+  path: []
   ingredients:
   - {fileID: 11400000, guid: 19ca09f3402325945ba4239ce4d086c3, type: 2}
-  - {fileID: 11400000, guid: 19ca09f3402325945ba4239ce4d086c3, type: 2}
+  - {fileID: 11400000, guid: 0c1db8e6ac5baa64c8820f21ebb6284c, type: 2}

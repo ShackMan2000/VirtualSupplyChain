@@ -111,4 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 0}
-  threshholdToArrive: 0.1
+  icon: {fileID: 0}
+  threshholdToArrive: 1.02
+  step: 0

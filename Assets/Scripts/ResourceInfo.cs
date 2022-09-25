@@ -12,6 +12,8 @@ public class ResourceInfo : ScriptableObject
 
     public Sprite iconImage;
 
+    public bool isFinished;
+
 
     [NonReorderable]
     public List<PathPoint> path;

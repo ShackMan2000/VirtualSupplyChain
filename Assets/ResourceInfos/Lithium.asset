@@ -13,23 +13,6 @@ MonoBehaviour:
   m_Name: Lithium
   m_EditorClassIdentifier: 
   ResourceName: 
-  path:
-  - position: {x: 2.3298998, y: 2.3257146, z: 3.7633247}
-    transportationType: {fileID: 11400000, guid: 6f21b23026da28d45956df1a67fe0813,
-      type: 2}
-  - position: {x: 3.0906029, y: 3.6971664, z: 1.333838}
-    transportationType: {fileID: 11400000, guid: 6f21b23026da28d45956df1a67fe0813,
-      type: 2}
-  - position: {x: 4.6002517, y: 1.9263778, z: 0.35599947}
-    transportationType: {fileID: 11400000, guid: 6f21b23026da28d45956df1a67fe0813,
-      type: 2}
-  - position: {x: 4.7975116, y: -1.061966, z: 0.9252529}
-    transportationType: {fileID: 11400000, guid: 6f21b23026da28d45956df1a67fe0813,
-      type: 2}
-  - position: {x: 3.47126, y: -1.8913321, z: 3.061573}
-    transportationType: {fileID: 11400000, guid: 6f21b23026da28d45956df1a67fe0813,
-      type: 2}
-  - position: {x: 2.7964888, y: 1.5024142, z: 3.8629522}
-    transportationType: {fileID: 11400000, guid: 6f21b23026da28d45956df1a67fe0813,
-      type: 2}
+  iconImage: {fileID: 0}
+  path: []
   ingredients: []

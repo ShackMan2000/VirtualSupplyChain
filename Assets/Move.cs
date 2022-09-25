@@ -9,65 +9,60 @@ public class Move : MonoBehaviour
     [SerializeField]    float rotationSpeed = 1f;
 
 
-    [SerializeField] private float betterpeed;
-
-    public SupplyChainData data;
-
-    [SerializeField] InputActionReference inputActions;
-
+  
 
     [SerializeField] InputActionReference rotateActionRef;
 
     InputAction rotateAction;
 
     [SerializeField]
-    Transform anotherObjectToRotate;
+    Transform playerParent;
 
 
-    //void OnEnable()
-    //{
-    //    rotateAction = rotateActionRef.ToInputAction();
-    //    rotateAction.Enable();
-    //    rotateAction.performed += Rotate;
-    //}
+    void OnEnable()
+    {
+        rotateAction = rotateActionRef.ToInputAction();
+        rotateAction.Enable();
+        rotateAction.performed += Rotate;
+    }
 
-    //private void Rotate(InputAction.CallbackContext obj)
-    //{
-    //    var inputValue = obj.ReadValue<Vector2>();
-    //    var rotationValue = inputValue.x;
+    private void Rotate(InputAction.CallbackContext obj)
+    {
+        var inputValue = obj.ReadValue<Vector2>();
+        var rotationValue = inputValue.x;
 
-    //    transform.RotateAround(new Vector3(0f, 1f, 0f), rotationSpeed * Time.deltaTime * rotationValue);
+        playerParent.RotateAround(new Vector3(0f, 1f, 0f), rotationSpeed * Time.deltaTime * rotationValue);
 
-    //}
+    }
 
 
-    //// Start is called before the first frame update
-  
-    //// Update is called once per frame
+    // Start is called before the first frame update
+
+    // Update is called once per frame
     //void Update()
     //{
     //    // transform.position = Vector3.MoveTowards(transform.)
     //    RotateOnSphere();
     //}
 
-    //public    Vector3 targetPosition;
+    public Vector3 targetPosition;
 
-    //public Transform target;
-   
-    //void RotateOnSphere()
-    //{
+    public Transform target;
 
-     
-    //        transform.position = Vector3.RotateTowards(transform.position, target.position, rotationSpeed * Time.deltaTime, 0f);
-        
-
-    //}
+    void RotateOnSphere()
+    {
 
 
-    //private void FixedUpdate()
-    //{
-        
-    //}
+        transform.position = Vector3.RotateTowards(transform.position, target.position, rotationSpeed * Time.deltaTime, 0f);
+
+
+    }
+
+
+    private void FixedUpdate()
+    {
+
+    }
 }
 
 

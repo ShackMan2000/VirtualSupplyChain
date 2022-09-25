@@ -15,8 +15,10 @@ public class Resource : MonoBehaviour
 
     List<ResourceInfo> ingredients => info.ingredients;
 
-    public bool IsFinished { get; }
+    public bool IsFinished { get; set; }
 
+
+    [SerializeField] Icon icon;
 
     Dictionary<TransportationType, GameObject> models;
 
@@ -37,7 +39,7 @@ public class Resource : MonoBehaviour
             SubscribeToIngredients();
     }
 
-
+    public int step;
 
     IEnumerator MoveAlongPathRoutine()
     {
@@ -46,7 +48,7 @@ public class Resource : MonoBehaviour
         if (path.Count > 0)
             transform.position = path[0].Position;
 
-        int step = 1;
+        step = 1;
 
         while (step < path.Count)
         {
@@ -62,20 +64,22 @@ public class Resource : MonoBehaviour
                 transform.LookAt(Vector3.zero);
                 transform.Rotate(-90, 0, 0);
 
-                var modelRotation = modelTransform.localEulerAngles;                     
-                    modelTransform.LookAt(targetPosition);
+                var modelRotation = modelTransform.localEulerAngles;
+                modelTransform.LookAt(targetPosition);
 
                 modelTransform.localEulerAngles = new Vector3(modelRotation.x, modelTransform.localEulerAngles.y, modelRotation.z);
 
-               // modelTransform.LookAt(targetPosition);
+                // modelTransform.LookAt(targetPosition);
                 yield return null;
             }
 
             step++;
         }
 
+        info.isFinished = true;
         info.InvokePathFinished();
-        modelTransform.gameObject.SetActive(false);
+        if (modelTransform != null)
+            modelTransform.gameObject.SetActive(false);
 
 
         void UpdateTransportationMethod()
@@ -88,9 +92,9 @@ public class Resource : MonoBehaviour
 
             speed = t.TravelSpeed;
 
-            foreach (var m in models)            
+            foreach (var m in models)
                 m.Value.SetActive(false);
-            
+
             if (models.ContainsKey(t))
             {
                 modelTransform = models[t].transform;
@@ -114,8 +118,16 @@ public class Resource : MonoBehaviour
 
     private void OnIngredientFinished()
     {
+        bool allFinished = true;
 
-        StartCoroutine(MoveAlongPathRoutine());
+        foreach (var i in ingredients)
+        {
+            if (!i.isFinished)
+                allFinished = false;
+        }
+
+        if (allFinished)
+            StartCoroutine(MoveAlongPathRoutine());
 
     }
 

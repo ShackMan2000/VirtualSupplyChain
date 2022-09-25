@@ -32,6 +32,7 @@ public class ResourceManager : MonoBehaviour
     {
         foreach (var r in allResources)
         {
+            r.isFinished = false;
             Resource newResource = Instantiate(resourcePF);
             newResource.Initialize(r);
         }
