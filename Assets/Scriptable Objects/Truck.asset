@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transportationName: Truck
   model: {fileID: 2518447831739667308, guid: e0e2bf6bba9061c45b822fa760e2f095, type: 3}
-  travelSpeed: 1
+  travelSpeed: 0.3

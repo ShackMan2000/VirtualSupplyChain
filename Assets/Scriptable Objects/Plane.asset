@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transportationName: Plane
   model: {fileID: 8233434446631770507, guid: e0f854bf5d00431439c9c3a0722f62ae, type: 3}
-  travelSpeed: 1
+  travelSpeed: 0.3

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transportationName: Ship
   model: {fileID: 6018812305177875674, guid: 759beabc8fc73ff45939ca82dc2051b3, type: 3}
-  travelSpeed: 1
+  travelSpeed: 0.3

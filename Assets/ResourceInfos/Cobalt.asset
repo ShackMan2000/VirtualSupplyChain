@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 496585580ec43f24694f48164f4c4522, type: 3}
-  m_Name: Train
+  m_Script: {fileID: 11500000, guid: 17f7db5c9f228384587afe487b04a98f, type: 3}
+  m_Name: Cobalt
   m_EditorClassIdentifier: 
-  transportationName: Train
-  model: {fileID: 5686447246451396111, guid: 8a6aa1c9bc460e24ca695e3a89d29d27, type: 3}
-  travelSpeed: 0.3
+  ResourceName: 
+  path: []
+  ingredients: []

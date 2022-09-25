@@ -10,6 +10,10 @@ public class ResourceInfo : ScriptableObject
 
     public string ResourceName;
 
+    public Sprite iconImage;
+
+
+    [NonReorderable]
     public List<PathPoint> path;
 
     public List<ResourceInfo> ingredients;

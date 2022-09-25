@@ -35,13 +35,7 @@ public class Resource : MonoBehaviour
             StartCoroutine(MoveAlongPathRoutine());
         else
             SubscribeToIngredients();
-
     }
-
-
-
-
-    
 
 
 

@@ -25,3 +25,4 @@ MonoBehaviour:
       type: 2}
   ingredients:
   - {fileID: 11400000, guid: 19ca09f3402325945ba4239ce4d086c3, type: 2}
+  - {fileID: 11400000, guid: 19ca09f3402325945ba4239ce4d086c3, type: 2}
